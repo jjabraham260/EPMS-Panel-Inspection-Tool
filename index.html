@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><style id="qw-theme">:root {
+  --color-bg: #faf9fc !important;
+  --color-text: #131920 !important;
+  --react-pdf-text-layer: 1 !important;
+  --highlight-bg-color: #b400aa !important;
+  --highlight-selected-bg-color: #006400 !important;
+  --react-pdf-annotation-layer: 1 !important;
+  --annotation-unfocused-field-background: url("data:image/svg+xml;charset=UTF-8,<svg width='1px' height='1px' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' style='fill:rgba(0, 54, 255, 0.13);'/></svg>") !important;
+  --input-focus-border-color: Highlight !important;
+  --input-focus-outline: 1px solid Canvas !important;
+  --input-unfocused-border-color: transparent !important;
+  --input-disabled-border-color: transparent !important;
+  --input-hover-border-color: black !important;
+  --link-outline: none !important;
+  --qs-data-categorical-01: #4338ca !important;
+  --qs-data-categorical-06: #0c4a6e !important;
+  --qs-data-categorical-10: #831843 !important;
+  --flow-size-overview-canvas-min-height: 480px !important;
+  --chat-column-max: 720px !important;
+  --color-navbar-bg: #f9f9fb !important;
+  --color-navbar-fg: #131920 !important;
+  --color-navbar-divider: #0000001f !important;
+  --color-leftnav-bg: #f9f9fb !important;
+  --color-bg-chat-view: #f9f9fb !important;
+  --color-bg-secondary: #fff !important;
+  --color-bg-tertiary: #f9fafb !important;
+  --color-bg-hover: #f3f4f6 !important;
+  --color-surface: #f9fafb !important;
+  --color-surface-hover: #f3f4f6 !important;
+  --color-surface-active: #e5e7eb !important;
+  --color-border: #0000001f !important;
+  --color-border-light: #0000000f !important;
+  --color-border-strong: #d1d5db !important;
+  --background-toggle-off-default: #fff0 !important;
+  --color-primary: #4200db !important;
+  --color-primary-dark: #35009e !important;
+  --color-primary-light: #8575ff !important;
+  --color-primary-bg: #e8e6ff !important;
+  --color-primary-hover-border: #35009e !important;
+  --color-nav-icon-active: #4200db !important;
+  --color-nav-hover-border: #4200db !important;
+  --color-primary-alpha-3: color-mix(in srgb, #4200db 3%, transparent) !important;
+  --color-primary-alpha-5: color-mix(in srgb, #4200db 5%, transparent) !important;
+  --color-primary-alpha-8: color-mix(in srgb, #4200db 8%, transparent) !important;
+  --color-primary-alpha-12: color-mix(in srgb, #4200db 12%, transparent) !important;
+  --color-primary-alpha-15: color-mix(in srgb, #4200db 15%, transparent) !important;
+  --color-primary-alpha-20: color-mix(in srgb, #4200db 20%, transparent) !important;
+  --color-primary-alpha-25: color-mix(in srgb, #4200db 25%, transparent) !important;
+  --color-primary-alpha-30: color-mix(in srgb, #4200db 30%, transparent) !important;
+  --color-primary-alpha-40: color-mix(in srgb, #4200db 40%, transparent) !important;
+  --color-primary-alpha-50: color-mix(in srgb, #4200db 50%, transparent) !important;
+  --color-primary-alpha-60: color-mix(in srgb, #4200db 60%, transparent) !important;
+  --color-primary-subtle: color-mix(in srgb, #4200db 12%, transparent) !important;
+  --color-primary-border: color-mix(in srgb, #4200db 30%, transparent) !important;
+  --color-focus-ring: #4200db !important;
+  --color-sidebar-hover: color-mix(in srgb, #4200db 12%, transparent) !important;
+  --color-sidebar-hover-solid: color-mix(in srgb, #4200db 12%, #faf9fc) !important;
+  --block-hover-outline: 1px dashed color-mix(in srgb, #4200db 50%, transparent) !important;
+  --block-selected-outline: 1px solid #8575ff !important;
+  --block-selection-outline-offset: 2px !important;
+  --block-selected-halo: 0 0 8px color-mix(in srgb, #4200db 40%, transparent) !important;
+  --color-accent: #4200db !important;
+  --color-accent-foreground: #4200db !important;
+  --color-accent-dark: #35009e !important;
+  --color-accent-light: #e8e6ff !important;
+  --color-accent-inverse: #fff !important;
+  --color-link: #4200db !important;
+  --color-brand-ai-gradient-start: #6842ff !important;
+  --color-brand-ai-gradient-mid: #d600ba !important;
+  --color-brand-ai-gradient-end: #ff4b14 !important;
+  --color-brand-kiro: #9147ff !important;
+  --color-primary-gradient-end: #e8e6ff !important;
+  --color-primary-bg-solid: #e8e6ff !important;
+  --color-user-bubble: #f3f3f7 !important;
+  --color-user-bubble-text: #131920 !important;
+  --color-text-secondary: #5e5e5e !important;
+  --color-text-tertiary: #656871 !important;
+  --color-text-muted: #656871 !important;
+  --color-text-on-primary: #fff !important;
+  --color-success: #00802f !important;
+  --color-success-dark: #00471e !important;
+  --color-success-light: #d9ffd6 !important;
+  --color-success-hover: #005c26 !important;
+  --color-success-bg: #e6f5eb !important;
+  --color-success-border: #b3d9bf !important;
+  --color-success-foreground: #00802f !important;
+  --color-success-dark-foreground: #00471e !important;
+  --color-success-text: #00471e !important;
+  --color-error: #db0000 !important;
+  --color-error-dark: #700000 !important;
+  --color-error-light: #ffe0e0 !important;
+  --color-error-hover: #ffe0e0 !important;
+  --color-error-bg: #fceaea !important;
+  --color-error-border: #f2cccc !important;
+  --color-error-active-border: #db0000 !important;
+  --color-error-foreground: #db0000 !important;
+  --color-error-dark-foreground: #700000 !important;
+  --color-error-inverse: #fff !important;
+  --color-error-text: #700000 !important;
+  --color-warning: #f2b100 !important;
+  --color-warning-dark: #573a00 !important;
+  --color-warning-light: #fffbbd !important;
+  --color-warning-hover: #db9200 !important;
+  --color-warning-bg: #fef7e6 !important;
+  --color-warning-border: #f9dfa3 !important;
+  --color-warning-foreground: #f2b100 !important;
+  --color-warning-dark-foreground: #573a00 !important;
+  --color-warning-inverse: #573a00 !important;
+  --color-surface-warning: #fffbbd !important;
+  --color-text-warning: #573a00 !important;
+  --color-info: #006ce0 !important;
+  --color-info-dark: #002a66 !important;
+  --color-info-light: #d1f1ff !important;
+  --color-info-hover: #003b8f !important;
+  --color-info-bg: #ebf3fc !important;
+  --color-info-border: #b3d1f0 !important;
+  --color-info-foreground: #006ce0 !important;
+  --color-info-dark-foreground: #002a66 !important;
+  --color-info-inverse: #fff !important;
+  --color-overlay: #00000080 !important;
+  --color-shadow: #00000014 !important;
+  --color-hover: #0000000d !important;
+  --color-tooltip-bg: #000000d9 !important;
+  --color-tooltip-text: #fff !important;
+  --color-voice-purple: #8575ff !important;
+  --color-voice-purple-dark: #4200db !important;
+  --color-voice-purple-light: #8575ff !important;
+  --color-voice-red: #db0000 !important;
+  --color-voice-red-dark: #700000 !important;
+  --color-voice-amber: #f2b100 !important;
+  --color-voice-purple-glow: #4200db66 !important;
+  --color-voice-red-glow: #db000066 !important;
+  --font-sans: "Amazon Ember", "Helvetica Neue", "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  --font-mono: "SF Mono", "Monaco", "Menlo", "Consolas", monospace !important;
+  --text-2xs: .5625rem !important;
+  --text-xs: .625rem !important;
+  --text-sm: .6875rem !important;
+  --text-base: .75rem !important;
+  --text-md: .8125rem !important;
+  --text-lg: .875rem !important;
+  --text-xl: 1rem !important;
+  --text-2xl: 1.125rem !important;
+  --text-3xl: 1.25rem !important;
+  --text-4xl: 1.5rem !important;
+  --text-5xl: 2rem !important;
+  --spacing-1: calc(.25rem * 1) !important;
+  --spacing-1-5: calc(.25rem * 1.5) !important;
+  --spacing-2: calc(.25rem * 2) !important;
+  --spacing-3: calc(.25rem * 3) !important;
+  --spacing-4: calc(.25rem * 4) !important;
+  --spacing-5: calc(.25rem * 5) !important;
+  --spacing-6: calc(.25rem * 6) !important;
+  --spacing-7: calc(.25rem * 7) !important;
+  --spacing-8: calc(.25rem * 8) !important;
+  --spacing-9: calc(.25rem * 9) !important;
+  --spacing-10: calc(.25rem * 10) !important;
+  --border-radius-rounded-lg: 8px !important;
+  --radius-sm: 6px !important;
+  --radius-md: 10px !important;
+  --radius-card: 12px !important;
+  --radius-lg: 16px !important;
+  --radius-pill: 8px !important;
+  --shadow-sm: 0 1px 2px #0000000d !important;
+  --shadow-md: 0 4px 12px #00000014 !important;
+  --shadow-lg: 0 4px 16px 4px #00000029, 0 2px 6px 1px #00000029 !important;
+  --color-success-bg-solid: #d9ffd6 !important;
+  --color-error-bg-solid: #ffe0e0 !important;
+  --color-error-border-solid: #ffe0e0 !important;
+  --color-warning-bg-solid: #fffbbd !important;
+  --color-warning-text: #573a00 !important;
+  --color-info-bg-solid: #d1f1ff !important;
+  --color-info-bg-solid-alt: #d1f1ff !important;
+  --color-info-text: #002a66 !important;
+  --color-info-text-alt: #002a66 !important;
+  --color-emerald: #10b981 !important;
+  --color-teal: #4ecdc4 !important;
+  --color-code-bg: #f3f3f7 !important;
+  --color-code-header-bg: #f1f3f5 !important;
+  --color-code-text: #24292e !important;
+  --color-code-border: #e1e4e8 !important;
+  --color-code-muted: #6a737d !important;
+  --color-inline-code-bg: #f3f3f7 !important;
+  --color-inline-code-text: #24292e !important;
+  --color-inline-code-border: #e1e4e8 !important;
+  --color-scrollbar-thumb: #d1d5db !important;
+  --color-scrollbar-track: transparent !important;
+  --qs-data-cat-01: #4338ca !important;
+  --qs-data-cat-02: #d97706 !important;
+  --qs-data-cat-03: #0891b2 !important;
+  --qs-data-cat-04: #8b5cf6 !important;
+  --qs-data-cat-05: #15803d !important;
+  --qs-data-cat-06: #0c4a6e !important;
+  --qs-data-cat-07: #d946ef !important;
+  --qs-data-cat-08: #65a30d !important;
+  --qs-data-cat-09: #1d4ed8 !important;
+  --qs-data-cat-10: #831843 !important;
+  --qs-data-cat-11: #c2410c !important;
+  --qs-data-cat-12: #115e59 !important;
+  --qs-data-cat-other: #737373 !important;
+  --qs-content: #fff !important;
+  --qs-main: #fff !important;
+  --qs-primary-foreground: #131920 !important;
+  --qs-secondary-foreground: #656871 !important;
+  --qs-tertiary-foreground: #656871 !important;
+  --qs-placeholder-foreground: #656871 !important;
+  --qs-divider: #dedee3 !important;
+  --qs-default-border: #8c8c94 !important;
+  --qs-neutral-soft: #b4b4bb !important;
+  --qs-neutral-gray-50: #f9fafb !important;
+  --qs-tertiary-background: #f9fafb !important;
+  --qs-action-hover: #f3f3f7 !important;
+  --qs-primary-default: #4200db !important;
+  --qs-primary-dark: #35009e !important;
+  --qs-primary-medium: #8575ff !important;
+  --qs-primary-light: #e8e6ff !important;
+  --qs-primary-inverse: #fff !important;
+  --qs-success-default: #00802f !important;
+  --qs-success-dark: #00471e !important;
+  --qs-success-light: #d9ffd6 !important;
+  --qs-error-default: #db0000 !important;
+  --qs-error-dark: #700000 !important;
+  --qs-warning-default: #f2b100 !important;
+  --qs-warning-dark: #573a00 !important;
+  --qs-warning-light: #fffbbd !important;
+  --qs-info-default: #006ce0 !important;
+  --qs-info-dark: #002a66 !important;
+  --qs-font-sans: "Amazon Ember", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif !important;
+  --safe-top: 0px !important;
+  --safe-bottom: 0px !important;
+  --safe-left: 0px !important;
+  --safe-right: 0px !important;
+  --qs-action-active: #e8e6ff !important;
+  --qs-action-disabled: #f3f3f7 !important;
+  --qs-active-border: #4200db !important;
+  --qs-application-navbar: #4200db !important;
+  --qs-application-navbar-dark: #35009e !important;
+  --qs-application-navbar-foreground: #fff !important;
+  --qs-application-navbar-light: #e8e6ff !important;
+  --qs-automation-dark: #660052 !important;
+  --qs-automation-default: #d600ba !important;
+  --qs-automation-light: #ffe0fb !important;
+  --qs-automation-medium: #b3008f !important;
+  --qs-automation-soft: #ff94f1 !important;
+  --qs-avatar-blue-bg: #d1f1ff !important;
+  --qs-avatar-blue-fg: #002a66 !important;
+  --qs-avatar-fuchsia-bg: #fce6ff !important;
+  --qs-avatar-fuchsia-fg: #590066 !important;
+  --qs-avatar-green-bg: #d9ffd6 !important;
+  --qs-avatar-green-fg: #00471e !important;
+  --qs-avatar-neutral-bg: #dedee3 !important;
+  --qs-avatar-neutral-fg: #131920 !important;
+  --qs-avatar-orange-bg: #ffe0d6 !important;
+  --qs-avatar-orange-fg: #661800 !important;
+  --qs-avatar-pink-bg: #ffe0fb !important;
+  --qs-avatar-pink-fg: #660052 !important;
+  --qs-avatar-primary-bg: #e8e6ff !important;
+  --qs-avatar-primary-fg: #35009e !important;
+  --qs-avatar-red-bg: #ffe0e0 !important;
+  --qs-avatar-red-fg: #700000 !important;
+  --qs-avatar-violet-bg: #f2e5ff !important;
+  --qs-avatar-violet-fg: #45008a !important;
+  --qs-avatar-yellow-bg: #fffbbd !important;
+  --qs-avatar-yellow-fg: #573a00 !important;
+  --qs-brand: #fff !important;
+  --qs-brand-foreground: #131920 !important;
+  --qs-brand-navbar: #131920 !important;
+  --qs-brand-navbar-dark: #000 !important;
+  --qs-brand-navbar-foreground: #fff !important;
+  --qs-brand-navbar-light: #dedee3 !important;
+  --qs-coachmark: #006ce0 !important;
+  --qs-connection-dark: #661800 !important;
+  --qs-connection-default: #db3300 !important;
+  --qs-connection-light: #ffe0d6 !important;
+  --qs-connection-soft: #ff997a !important;
+  --qs-content-inverse: #333843 !important;
+  --qs-content-inverse-active: #131920 !important;
+  --qs-contrast-foreground: #131920 !important;
+  --qs-data-categorical-02: #d97706 !important;
+  --qs-data-categorical-03: #0891b2 !important;
+  --qs-data-categorical-04: #8b5cf6 !important;
+  --qs-data-categorical-05: #15803d !important;
+  --qs-data-categorical-07: #d946ef !important;
+  --qs-data-categorical-08: #65a30d !important;
+  --qs-data-categorical-09: #1d4ed8 !important;
+  --qs-data-categorical-11: #c2410c !important;
+  --qs-data-categorical-12: #115e59 !important;
+  --qs-data-categorical-other: #737373 !important;
+  --qs-data-divergent-negative: #ea580c !important;
+  --qs-data-divergent-positive: #4f46e5 !important;
+  --qs-data-divergent-red-green-negative: #dc2626 !important;
+  --qs-data-divergent-red-green-positive: #16a34a !important;
+  --qs-data-missing: #d4d4d4 !important;
+  --qs-data-sentiment-neutral: #737373 !important;
+  --qs-data-sentiment-warning: #9e6900 !important;
+  --qs-data-sequential-duochromatic-high: #1e1b4b !important;
+  --qs-data-sequential-duochromatic-low: #8b5cf6 !important;
+  --qs-data-sequential-monochromatic-high: #4f46e5 !important;
+  --qs-default-badge: #b4b4bb !important;
+  --qs-default-badge-dot: #656871 !important;
+  --qs-dimension: #4200db !important;
+  --qs-dimension-experimental: #4200db !important;
+  --qs-dimension-experimental-foreground: #4200db !important;
+  --qs-dimension-foreground: #fff !important;
+  --qs-disabled: #8c8c94 !important;
+  --qs-disabled-border: #dedee3 !important;
+  --qs-disabled-foreground: #b4b4bb !important;
+  --qs-divider-light: #f3f3f7 !important;
+  --qs-error-active-border: #db0000 !important;
+  --qs-error-border: #ffe0e0 !important;
+  --qs-error-foreground: #db0000 !important;
+  --qs-error-inverse: #fff !important;
+  --qs-error-light: #ffe0e0 !important;
+  --qs-error-medium: #900 !important;
+  --qs-error-soft: #ff9e9e !important;
+  --qs-focus-offset: 1px !important;
+  --qs-font-base-letter-spacing: .15px !important;
+  --qs-font-family: "Amazon Ember", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif !important;
+  --qs-grid-gap: 16px !important;
+  --qs-grid-gap-xl: 24px !important;
+  --qs-hero-banner-button-hover: color-mix(in srgb, #fff, transparent 60%) !important;
+  --qs-hover-border: #333843 !important;
+  --qs-info-inverse: #fff !important;
+  --qs-info-light: #d1f1ff !important;
+  --qs-info-medium: #003b8f !important;
+  --qs-info-soft: #75cfff !important;
+  --qs-insight-dark: #590066 !important;
+  --qs-insight-default: #a000b8 !important;
+  --qs-insight-light: #fce6ff !important;
+  --qs-insight-soft: #f299ff !important;
+  --qs-main-foreground: #131920 !important;
+  --qs-main-secondary-foreground: #656871 !important;
+  --qs-measure: #00802f !important;
+  --qs-measure-experimental: #f2b100 !important;
+  --qs-measure-experimental-foreground: #f2b100 !important;
+  --qs-measure-foreground: #fff !important;
+  --qs-neutral-black: #000 !important;
+  --qs-neutral-dark: #333843 !important;
+  --qs-neutral-deep: #656871 !important;
+  --qs-neutral-default: #dedee3 !important;
+  --qs-neutral-light: #f3f3f7 !important;
+  --qs-neutral-lightest: #f9f9fb !important;
+  --qs-neutral-medium: #8c8c94 !important;
+  --qs-neutral-strong: #131920 !important;
+  --qs-neutral-white: #fff !important;
+  --qs-overlay: color-mix(in srgb, #131920, transparent 50%) !important;
+  --qs-primary-inverse-foreground: #fff !important;
+  --qs-primary-soft: #b2a8ff !important;
+  --qs-secondary: #dedee3 !important;
+  --qs-secondary-dark: #b4b4bb !important;
+  --qs-secondary-light: #f3f3f7 !important;
+  --qs-shadow: #00000029 !important;
+  --qs-shadow-lg: 0 4px 16px 4px #00000029, 0 2px 6px 1px #00000029 !important;
+  --qs-shadow-md: 0 0 2px 0 #00000029, 0 2px 8px 1px #00000029 !important;
+  --qs-shadow-pin-left: inset -4px 0 4px -4px #00000029 !important;
+  --qs-shadow-pin-right: inset 4px 0 4px -4px #00000029 !important;
+  --qs-shadow-sm: 0 0 2px 0 #00000029, 0 0 4px 0 #00000029 !important;
+  --qs-shadow-xl: 0 4px 8px 2px #00000029, 0 6px 20px 4px #00000029 !important;
+  --qs-spice: #ff9800 !important;
+  --qs-success-inverse: #fff !important;
+  --qs-success-medium: #005c26 !important;
+  --qs-success-soft: #aeffa8 !important;
+  --qs-tag-default: #dedee3 !important;
+  --qs-tag-soft-border: #b4b4bb !important;
+  --qs-toggle-tile-lg: calc(.25rem * 15) !important;
+  --qs-toggle-tile-md: calc(.25rem * 12) !important;
+  --qs-toggle-tile-sm: calc(.25rem * 8) !important;
+  --qs-transparent: transparent !important;
+  --qs-visualization-dark: #45008a !important;
+  --qs-visualization-default: #7300e5 !important;
+  --qs-visualization-light: #f2e5ff !important;
+  --qs-visualization-soft: #d4a8ff !important;
+  --qs-warning-experimental: #f2b100 !important;
+  --qs-warning-experimental-light: #fffbbd !important;
+  --qs-warning-experimental-light-foreground: #fffbbd !important;
+  --qs-warning-inverse: #573a00 !important;
+  --qs-warning-medium: #db9200 !important;
+  --qs-warning-soft: #ffed4d !important;
+  --qs-width-modal-lg: 1136px !important;
+  --qs-width-modal-md: 600px !important;
+  --qs-width-modal-sm: 384px !important;
+  --qs-duration-reorder: .125s !important;
+  --qs-ease-reorder: ease-in-out !important;
+  --z-subtask-modal: 10000 !important;
+  --z-above-subtask-modal: 10001 !important;
+}</style>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EPMS Panel Inspection</title>
+<style>
+:root{--bg:#f4f6f9;--card:#fff;--text:#18212b;--muted:#667383;--line:#dde3ea;--brand:#1F4E78;--good:#1e8e4e;--goodbg:#e3f4ea;--bad:#c93a1c;--badbg:#fde8e2;--na:#6b7686;--nabg:#eceff3;--warn:#8a5a00;--warnbg:#fff4d6;--r:12px;--font:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.45}
+header{position:sticky;top:0;z-index:10;background:var(--brand);color:#fff;padding:10px 16px;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.hrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:980px;margin:auto}
+header h1{margin:0;font-size:18px;font-weight:600}
+.sp{flex:1}
+.hbtn{background:rgba(255,255,255,.16);color:#fff;border:0;border-radius:8px;padding:7px 12px;font:inherit;font-size:14px;cursor:pointer}
+.hbtn:hover{background:rgba(255,255,255,.28)}
+.overall{max-width:980px;margin:8px auto 0;height:6px;background:rgba(255,255,255,.25);border-radius:4px;overflow:hidden}
+.overall i{display:block;height:100%;background:#7fe3a6;width:0;transition:width .25s}
+main{max-width:980px;margin:16px auto 80px;padding:0 14px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 10px}
+.tab{flex:0 0 auto;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;cursor:pointer;font:inherit;font-weight:600;min-width:84px;text-align:center}
+.tab small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+.tab.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.tab.on small{color:#cfe0ef}
+.tab.done{border-color:var(--good)}
+.tab.flag{border-color:var(--bad)}
+.ph{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:6px 2px 12px}
+.ph h2{margin:0;font-size:24px}
+.ph span{color:var(--muted)}
+.chip{display:inline-block;border-radius:20px;padding:2px 10px;font-size:13px;font-weight:600}
+.chip.g{background:var(--goodbg);color:var(--good)}.chip.b{background:var(--badbg);color:var(--bad)}.chip.n{background:var(--nabg);color:var(--na)}
+.card{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--line);border-radius:var(--r);padding:14px 16px;margin:12px 0;transition:border-color .15s}
+.card.good{border-left-color:var(--good)}.card.bad{border-left-color:var(--bad)}.card.na{border-left-color:var(--na)}
+.top{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
+.num{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-weight:700;color:var(--muted)}
+.txt{flex:1 1 320px}
+.txt h3{margin:0 0 4px;font-size:18px}
+.txt p{margin:0;color:var(--muted);font-size:15px}
+.warn{margin-top:8px;background:var(--warnbg);color:var(--warn);border-radius:8px;padding:7px 10px;font-size:14px}
+.btns{display:flex;gap:8px;flex:0 0 auto}
+.b{border:2px solid var(--line);background:#fff;color:var(--text);border-radius:10px;padding:10px 16px;font:inherit;font-weight:700;cursor:pointer;min-width:84px}
+.b:hover{background:var(--bg)}
+.b.g.on{background:var(--good);border-color:var(--good);color:#fff}
+.b.b.on{background:var(--bad);border-color:var(--bad);color:#fff}
+.b.n.on{background:var(--na);border-color:var(--na);color:#fff}
+textarea{width:100%;margin-top:10px;border:1px solid var(--line);border-radius:8px;padding:9px 10px;font:inherit;font-size:15px;resize:vertical;min-height:44px}
+textarea:focus{outline:2px solid var(--brand);border-color:var(--brand)}
+textarea.need{border-color:var(--bad);background:#fffaf8}
+.hint{font-size:13px;color:var(--bad);margin-top:4px;display:none}
+.card.bad.empty .hint{display:block}
+.nav{display:flex;gap:10px;justify-content:space-between;margin:18px 0}
+.nav button{border:0;border-radius:10px;padding:12px 18px;font:inherit;font-weight:700;cursor:pointer;background:var(--brand);color:#fff}
+.nav button.sec{background:var(--card);color:var(--brand);border:1px solid var(--line)}
+.nav button:disabled{opacity:.4;cursor:default}
+.markall{margin:0 0 4px;font-size:14px}
+.markall button{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer;color:var(--good);font-weight:600}
+dialog{border:0;border-radius:14px;padding:0;max-width:760px;width:92%;box-shadow:0 12px 40px rgba(0,0,0,.3)}
+dialog::backdrop{background:rgba(0,0,0,.4)}
+.dh{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+.dh h3{margin:0;flex:1}
+.db{padding:14px 18px;max-height:62vh;overflow:auto}
+.db pre{white-space:pre-wrap;font-family:Consolas,monospace;font-size:13px;background:var(--bg);border-radius:8px;padding:12px;margin:0}
+.df{padding:12px 18px;border-top:1px solid var(--line);display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+.df button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 14px;font:inherit;cursor:pointer;font-weight:600}
+.df .p{background:var(--brand);color:#fff;border-color:var(--brand)}
+.sum td,.sum th{padding:6px 10px;border-bottom:1px solid var(--line);text-align:left;font-size:14px;vertical-align:top}
+.sum{border-collapse:collapse;width:100%}
+@media print{header,.tabs,.nav,.btns,.markall,.hbtn{display:none}.card{break-inside:avoid}}
+</style></head><body>
+<header><div class="hrow"><h1>EPMS Panel Inspection</h1><span id="ov" style="font-size:14px;opacity:.9"></span><span class="sp"></span>
+<button class="hbtn" id="rep">Summary</button><button class="hbtn" id="rst">Reset all</button></div>
+<div class="overall"><i id="bar"></i></div></header>
+<main>
+<div class="tabs" id="tabs"></div>
+<div id="view"></div>
+</main>
+<dialog id="dlg"><div class="dh"><h3>Inspection summary</h3><button class="hbtn" style="background:#eef1f5;color:#18212b" id="x">Close</button></div>
+<div class="db" id="sumbody"></div>
+<div class="df"><button id="cpA">Copy issues only</button><button class="p" id="cpB">Copy full report</button></div></dialog>
+<script>
+const D={"panels":["D1C1","D1E1","D1E2","D1E3","D1E4","D2C1","D2E1","D2E2","D2E3","D2E4"],"checks":[{"id":"ats","name":"ATS / redundancy modules","desc":"Visually confirm that primary power is on and no alarm is present, and that the alarm switch is enabled."},{"id":"fans","name":"Fans and filters","desc":"Inspect enclosure fans (if installed) from inside and outside for proper operation, obstructions and dust. Check filters (if installed) and clean as needed."},{"id":"ser","name":"SER status","desc":"Open the enclosure and navigate the Cyber Sciences SER drop-downs on the display. Verify there are no status errors, and record any discrepancies."},{"id":"lights","name":"Diagnostic lights","desc":"Open each enclosure and look for any diagnostic light indicators. Record discrepancies."},{"id":"wiring","name":"Wiring","desc":"Open each enclosure and look for missing wire labels or obvious wiring defects. Record discrepancies."},{"id":"labels","name":"Device labeling","desc":"Check for missing labels, for example IP, node and instance number. Record discrepancies."},{"id":"drawings","name":"Drawings","desc":"Confirm the proper drawings are present in the enclosure. Record discrepancies."},{"id":"clean","name":"Cleanliness","desc":"Check for clean enclosures, for example Panduit covers attached, no loose documents or media, free of dirt and debris, and no unused components.","warn":"If covers are off because of poor wiring, do not replace them. If media or unused components are present, do not remove them. Only record."}]};
+const KEY="epms_panel_inspection_v1";
+let S={};try{S=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+let cur=0;
+const $=id=>document.getElementById(id);
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const get=(p,c)=>(S[p]&&S[p][c])||{r:"",n:""};
+function set(p,c,k,v){S[p]=S[p]||{};S[p][c]=S[p][c]||{r:"",n:""};S[p][c][k]=v;save()}
+function stats(p){let g=0,b=0,n=0;D.checks.forEach(c=>{const r=get(p,c.id).r;if(r==="good")g++;else if(r==="bad")b++;else if(r==="na")n++});return{g,b,n,done:g+b+n,total:D.checks.length}}
+function tabs(){
+ $("tabs").innerHTML="";
+ D.panels.forEach((p,i)=>{
+  const s=stats(p),t=document.createElement("button");
+  t.className="tab"+(i===cur?" on":"")+(s.done===s.total?" done":"")+(s.b?" flag":"");
+  t.innerHTML=p+"<small>"+s.done+"/"+s.total+(s.b?" · "+s.b+" issue"+(s.b>1?"s":""):"")+"</small>";
+  t.onclick=()=>{cur=i;render()};$("tabs").appendChild(t)});
+ let tot=0,dn=0;D.panels.forEach(p=>{const s=stats(p);tot+=s.total;dn+=s.done});
+ $("bar").style.width=(100*dn/tot)+"%";$("ov").textContent=dn+" of "+tot+" checked"}
+function render(){
+ tabs();
+ const p=D.panels[cur],s=stats(p),v=$("view");v.innerHTML="";
+ const h=document.createElement("div");h.className="ph";
+ h.innerHTML="<h2>"+p+" EPMS Panel</h2><span>Electrical room "+p+"</span>"+
+  (s.g?'<span class="chip g">'+s.g+' good</span>':"")+(s.b?'<span class="chip b">'+s.b+' issue</span>':"")+(s.n?'<span class="chip n">'+s.n+' n/a</span>':"");
+ v.appendChild(h);
+ const ma=document.createElement("div");ma.className="markall";
+ ma.innerHTML='<button>Mark all remaining Good</button>';
+ ma.firstChild.onclick=()=>{D.checks.forEach(c=>{if(!get(p,c.id).r)set(p,c.id,"r","good")});render()};
+ v.appendChild(ma);
+ D.checks.forEach((c,i)=>{
+  const st=get(p,c.id),card=document.createElement("div");
+  card.className="card"+(st.r?" "+st.r:"")+((st.r==="bad"&&!st.n.trim())?" empty":"");
+  card.innerHTML='<div class="top"><div class="num">'+(i+1)+'</div><div class="txt"><h3>'+c.name+'</h3><p>'+c.desc+'</p>'+(c.warn?'<div class="warn"><b>Note:</b> '+c.warn+'</div>':"")+'</div><div class="btns"></div></div>'+
+   '<textarea placeholder="Notes (required for an issue)"></textarea><div class="hint">Add a note describing the issue.</div>';
+  const bw=card.querySelector(".btns");
+  [["g","Good","good"],["b","Issue","bad"],["n","N/A","na"]].forEach(([k,l,val])=>{
+   const b=document.createElement("button");b.className="b "+k+(st.r===val?" on":"");b.textContent=l;
+   b.onclick=()=>{set(p,c.id,"r",st.r===val?"":val);render()};bw.appendChild(b)});
+  const ta=card.querySelector("textarea");ta.value=st.n;
+  if(st.r==="bad"&&!st.n.trim())ta.classList.add("need");
+  ta.oninput=()=>{set(p,c.id,"n",ta.value);const bad=get(p,c.id).r==="bad";
+   card.classList.toggle("empty",bad&&!ta.value.trim());ta.classList.toggle("need",bad&&!ta.value.trim());tabs()};
+  v.appendChild(card)});
+ const nv=document.createElement("div");nv.className="nav";
+ nv.innerHTML='<button class="sec" id="pv">Previous panel</button><button id="nx">Next panel</button>';
+ v.appendChild(nv);
+ $("pv").disabled=cur===0;$("nx").disabled=cur===D.panels.length-1;
+ $("pv").onclick=()=>{cur--;render();scrollTo(0,0)};$("nx").onclick=()=>{cur++;render();scrollTo(0,0)}}
+function label(r){return r==="good"?"GOOD":r==="bad"?"ISSUE":r==="na"?"N/A":"NOT CHECKED"}
+function report(issuesOnly){
+ const L=[];const d=new Date().toLocaleString();
+ L.push("EPMS Panel Inspection - "+d);
+ D.panels.forEach(p=>{
+  const rows=D.checks.map(c=>({c,s:get(p,c.id)})).filter(x=>!issuesOnly||x.s.r==="bad");
+  if(!rows.length)return;
+  L.push("");L.push(p+" EPMS Panel");
+  rows.forEach(x=>L.push("  - "+x.c.name+": "+label(x.s.r)+(x.s.n.trim()?" | "+x.s.n.trim().replace(/\s*\n\s*/g," / "):"")))});
+ if(issuesOnly&&L.length===1)L.push("","No issues recorded.");
+ return L.join("\n")}
+function showSum(){
+ let h='<table class="sum"><tr><th>Panel</th><th>Good</th><th>Issues</th><th>N/A</th><th>Left</th></tr>';
+ D.panels.forEach(p=>{const s=stats(p);h+="<tr><td><b>"+p+"</b></td><td>"+s.g+"</td><td>"+(s.b?'<b style="color:var(--bad)">'+s.b+"</b>":0)+"</td><td>"+s.n+"</td><td>"+(s.total-s.done)+"</td></tr>"});
+ h+="</table><p style='color:var(--muted);font-size:13px'>Preview of the full report:</p><pre>"+report(false).replace(/&/g,"&amp;").replace(/</g,"&lt;")+"</pre>";
+ $("sumbody").innerHTML=h;$("dlg").showModal()}
+function copy(t,msg){
+ const fb=()=>{const x=document.createElement("textarea");x.value=t;document.body.appendChild(x);x.select();try{document.execCommand("copy");alert(msg)}catch(e){prompt("Copy this:",t)}x.remove()};
+ if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(()=>alert(msg),fb)}else fb()}
+$("rep").onclick=showSum;$("x").onclick=()=>$("dlg").close();
+$("cpA").onclick=()=>copy(report(true),"Issues copied");$("cpB").onclick=()=>copy(report(false),"Full report copied");
+$("rst").onclick=()=>{if(confirm("Clear every result and note for all panels?")){S={};save();cur=0;render()}};
+render();
+</script></body></html>
